@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--admin3.2-->
+    <link rel="stylesheet" th:href="@{/admin3.2/plugins/fontawesome-free/css/all.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/admin3.2/dist/css/adminlte.min.css}">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+
+    <link rel="shortcut icon" th:href="@{/img/二氧化碳浓度.png}">
+
+
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" th:href="@{/assets/images/favicon.png}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/assets/vendors/bootstrap/css/bootstrap.min.css}" media="all">
+    <!-- Fonts Awesome CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/fontawesome/css/all.min.css}">
+    <!-- Elmentkit Icon CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/elementskit-icon-pack/assets/css/ekiticons.css}">
+    <!-- Fonts Awesome CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/progressbar-fill-visible/css/progressBar.css}">
+    <!-- jquery-ui css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/jquery-ui/jquery-ui.min.css}">
+    <!-- modal video css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/modal-video/modal-video.min.css}">
+    <!-- light box css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/fancybox/dist/jquery.fancybox.min.css}">
+    <!-- slick slider css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/slick/slick.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/slick/slick-theme.css}">
+    <!-- google fonts -->
+    <!--      <link th:href="@{https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap}" rel="stylesheet">-->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/style.css}">
+    <title>碳排放压力分析</title>
+</head>
+<body class="home">
+<div id="siteLoader" class="site-loader">
+    <div class="preloader-content">
+        <img th:src="@{/assets/images/loader1.gif}" alt="">
+    </div>
+</div>
+<div id="page" class="full-page">
+    <header id="masthead" class="site-header site-header-transparent">
+        <!-- header html start -->
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 d-none d-lg-block">
+                        <div class="header-contact-info">
+                            <ul>
+                                <li>
+                                    <a href="tel:+01-977-2599-12"><i class="fas fa-phone-alt"></i> +86-156-3063-1516</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="0e6d61637e6f60774e6a61636f6760206d6163">[email&#160;emirage@foxbox.com]</span></a>
+                                </li>
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> 双口镇 河北小清华
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-lg-end justify-content-between">
+                        <div class="header-social social-links">
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com" target="_blank">
+                                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.twitter.com" target="_blank">
+                                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com" target="_blank">
+                                        <i class="fab fa-youtube" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com" target="_blank">
+                                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com" target="_blank">
+                                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header-search-icon">
+                            <button class="search-icon">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-header">
+            <div class="container">
+                <div class="hgroup-wrap d-flex justify-content-between align-items-center">
+                    <div class="site-identity">
+                        <h1 class="site-title">
+                            <a href="index.html">
+                                <img th:src="@{/assets/img/hebut.png}" alt="logo">
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="main-navigation">
+                        <nav id="navigation" class="navigation d-none d-lg-inline-block">
+                            <ul>
+                                <li >
+                                    <a th:href="@{/index}">碳核算</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/foot}">碳足迹</a>
+                                </li>
+                                <li class="current-menu-item">
+                                    <a th:href="@{/carbonpressure}">压力分析</a>
+                                </li>
+                                <li >
+                                    <a th:href="@{/anticipate}">碳排放预测</a>
+                                </li>
+                                <li>
+                                    <a href="#">关于</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="header-btn d-inline-block">
+                            <a th:href="@{/money}" class="button-round-primary">Donate Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-container"></div>
+    </header>
+    <main id="content" class="site-main">
+
+        <!--            /assets/images/banner-img.jpg   -->
+        <!-- home banner section html start -->
+
+        <section class="home-banner" th:style="'background-image: url(/assets/images/banner-img.jpg)'">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="banner-content text-center">
+                            <div class="section-head">
+                                <div class="back-title">河工碳中心</div>
+                                <h2 class="section-title banner-title">碳压力 <span class="primary-color">分析
+                                 <svg class="title-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                    <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"></path>
+                                 </svg>
+                              </span></h2>
+                            </div>
+                            <div class="banner-text">
+                                <p>每单位GDP产生的碳排放，人均碳排放量以及碳排放与经济的脱钩指数揭示着我们承受的碳压力</p>
+                            </div>
+                            <div class="banner-button">
+                                <a href="about.html" class="button-round-primary">Learn More</a>
+                                <a th:href="@{/money}" class="button-round-white">Buy me a coffee</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay"></div>
+        </section>
+
+
+
+        <section class="service-section">
+
+
+
+
+            <div class="career-detail-section">
+                <div class="career-detail-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="career-detail-container">
+                                    <div class="job-description">
+                                        <ul>
+                                            <li>
+                                                <span>单位 :</span>
+                                                <h4>吨/人</h4>
+                                            </li>
+                                            <li>
+                                                <span>时间 :</span>
+                                                <h4>2010 - 2020</h4>
+                                            </li>
+
+                                        </ul>
+                                        <div id="pressure_cs_population" style="min-height: 250px; height: 250px;
+                                max-height: 250px; max-width: 100%;background-color: #ffffff">
+                                        </div>
+                                        <!--                                    <div id="index_carbon_composition_tianjin" style="min-height: 250px; height: 250px;-->
+                                        <!--                                        max-height: 250px; max-width: 100%;background-color: #ffffff">-->
+                                        <!--                                    </div>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 order-lg-first">
+                                <div class="sidebar">
+                                    <div class="widget-bg sidebar-list">
+                                        <h4 class="bg-title">京津冀人均碳排放</h4>
+                                        <ul>
+                                            <li><i class="fas fa-minus"></i>人均碳排放是平均每个人产生的碳排放数量</li>
+                                            <li><i class="fas fa-minus"></i>我国由于人口基数大，人均碳排放量并不高</li>
+                                            <li><i class="fas fa-minus"></i>人均碳排放可以有效反映碳排放压力</li>
+                                            <li><i class="fas fa-minus"></i><a class="fa-bluetooth">了解更多</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </section>
+
+
+        <section class="service-section">
+
+
+
+
+            <div class="career-detail-section">
+                <div class="career-detail-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="career-detail-container">
+                                    <div class="job-description">
+                                        <ul>
+                                            <li>
+                                                <span>单位 :</span>
+                                                <h4>吨/万元</h4>
+                                            </li>
+                                            <li>
+                                                <span>时间 :</span>
+                                                <h4>2010 - 2020</h4>
+                                            </li>
+
+                                        </ul>
+                                        <div id="pressure_cs_gdp" style="min-height: 250px; height: 250px;
+                                max-height: 250px; max-width: 100%;background-color: #ffffff">
+                                        </div>
+                                        <!--                                    <div id="index_carbon_composition_tianjin" style="min-height: 250px; height: 250px;-->
+                                        <!--                                        max-height: 250px; max-width: 100%;background-color: #ffffff">-->
+                                        <!--                                    </div>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 order-lg-first">
+                                <div class="sidebar">
+                                    <div class="widget-bg sidebar-list">
+                                        <h4 class="bg-title">京津冀的碳排放强度</h4>
+                                        <ul>
+                                            <li><i class="fas fa-minus"></i>每单位国民生产总值所带来的二氧化碳排放量</li>
+                                            <li><i class="fas fa-minus"></i>即碳排放强度=碳排放量/GDP</li>
+                                            <li><i class="fas fa-minus"></i>碳排放强度大下降说明京津冀实现了一个低碳的发展模式</li>
+                                            <li><i class="fas fa-minus"></i><a class="fa-bluetooth">了解更多</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </section>
+
+
+        <section>
+            <div class="career-detail-section">
+                <div class="career-detail-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="career-detail-container">
+
+                                    <div class="tab-container">
+                                        <div class="responsive-tabs">
+                                            <ul class="nav nav-tabs" role="tablist">
+                                                <li class="nav-item">
+                                                    <a id="tab-A" href="#pane-A" class="nav-link active" data-bs-toggle="tab" role="tab">
+                                                        北京
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a id="tab-B" href="#pane-B" class="nav-link" data-bs-toggle="tab" role="tab">
+                                                        天津
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a id="tab-C" href="#pane-C" class="nav-link" data-bs-toggle="tab" role="tab">
+                                                        河北
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                            <div id="nav-tab-content" class="tab-content" role="tablist">
+                                                <div id="pane-A" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
+                                                    <div class="card-header" role="tab" id="heading-A">
+                                                        <h5 class="mb-0">
+                                                            <a data-bs-toggle="collapse" href="#collapse-A" aria-expanded="true" aria-controls="collapse-A">
+                                                                北京
+                                                            </a>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse-A" class="collapse show" data-bs-parent="#nav-tab-content" role="tabpanel"
+                                                         aria-labelledby="heading-A">
+                                                        <div class="card-body">
+                                                            <table id="example1" class="table table-bordered table-striped text-center">
+                                                                <thead th:style="'background =#5f8dd4;'">
+                                                                <tr>
+
+                                                                    <th>年份</th>
+                                                                    <th>碳排放变化率</th>
+                                                                    <th>GDP变化率</th>
+                                                                    <th>碳排放GDP弹性</th>
+                                                                    <th>碳排放与经济增长耦合关系</th>
+
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                <tr th:each="beijing:${beijing}">
+
+                                                                    <td th:utext="${beijing.year}"></td>
+                                                                    <td th:utext="${beijing.ex_carbon}"></td>
+                                                                    <td th:utext="${beijing.ex_gdp}"></td>
+                                                                    <td th:utext="${beijing.elasticity}"></td>
+                                                                    <td th:utext="${beijing.type}"></td>
+                                                                </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="pane-B" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                                                    <div class="card-header" role="tab" id="heading-B">
+                                                        <h5 class="mb-0">
+                                                            <a class="collapsed" data-bs-toggle="collapse" href="#collapse-B" aria-expanded="false" aria-controls="collapse-B">
+                                                                天津
+                                                            </a>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse-B" class="collapse" data-bs-parent="#nav-tab-content" role="tabpanel"
+                                                         aria-labelledby="heading-B">
+                                                        <div class="card-body">
+                                                            <table id="example2" class="table table-bordered table-striped text-center">
+                                                                <thead th:style="'background =#5f8dd4;'">
+                                                                <tr>
+
+                                                                    <th>年份</th>
+                                                                    <th>碳排放变化率</th>
+                                                                    <th>GDP变化率</th>
+                                                                    <th>碳排放GDP弹性</th>
+                                                                    <th>碳排放与经济增长耦合关系</th>
+
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                <tr th:each="tianjin:${tianjin}">
+
+                                                                    <td th:utext="${tianjin.year}"></td>
+                                                                    <td th:utext="${tianjin.ex_carbon}"></td>
+                                                                    <td th:utext="${tianjin.ex_gdp}"></td>
+                                                                    <td th:utext="${tianjin.elasticity}"></td>
+                                                                    <td th:utext="${tianjin.type}"></td>
+                                                                </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="pane-C" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                                                    <div class="card-header" role="tab" id="heading-C">
+                                                        <h5 class="mb-0">
+                                                            <a data-bs-toggle="collapse" href="#collapse-C" aria-expanded="true" aria-controls="collapse-C">
+                                                                河北
+                                                            </a>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse-C" class="collapse" data-bs-parent="#nav-tab-content" role="tabpanel"
+                                                         aria-labelledby="heading-C">
+                                                        <div class="card-body">
+                                                            <table id="example3" class="table table-bordered table-striped text-center">
+                                                                <thead th:style="'background =#5f8dd4;'">
+                                                                <tr>
+
+                                                                    <th>年份</th>
+                                                                    <th>碳排放变化率</th>
+                                                                    <th>GDP变化率</th>
+                                                                    <th>碳排放GDP弹性</th>
+                                                                    <th>碳排放与经济增长耦合关系</th>
+
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                <tr th:each="hebei:${hebei}">
+
+                                                                    <td th:utext="${hebei.year}"></td>
+                                                                    <td th:utext="${hebei.ex_carbon}"></td>
+                                                                    <td th:utext="${hebei.ex_gdp}"></td>
+                                                                    <td th:utext="${hebei.elasticity}"></td>
+                                                                    <td th:utext="${hebei.type}"></td>
+                                                                </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 order-lg-first">
+                                <div class="sidebar">
+                                    <div class="widget-bg sidebar-list">
+                                        <h4 class="bg-title">京津冀脱钩指数</h4>
+                                        <ul>
+                                            <li><i class="fas fa-minus"></i>展示了碳排放变化量、经济变化、弹性系数以及脱钩的耦合状态</li>
+                                            <li><i class="fas fa-minus"></i>本栏目分别展示了北京、天津、河北的脱钩信息</li>
+                                        </ul>
+                                    </div>
+                                    <div class="widget-bg faq-widget">
+                                        <h4 class="bg-title">Asked Questions</h4>
+                                        <div id="sidebar-tab-content" class="accordion-content" role="tablist">
+                                            <div id="accordion-A" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
+                                                <div class="card-header" role="tab" id="qus-A">
+                                                    <h5 class="mb-0">
+                                                        <a data-bs-toggle="collapse" href="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                                           什么是脱钩指数
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapse-one" class="collapse show" data-bs-parent="#sidebar-tab-content" role="tabpanel" aria-labelledby="qus-A">
+                                                    <div class="card-body">
+                                                        “脱钩”一词，顾名思义，是指将两个或多个变量的作用关系分开脱钩指数是碳排放与经济增长的耦合关系，可以判断一个国家或地区某年某种资源消耗或废物排放与GDP的脱钩情况。
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="accordion-B" class="card tab-pane" role="tabpanel" aria-labelledby="tab-B">
+                                                <div class="card-header" role="tab" id="qus-B">
+                                                    <h5 class="mb-0">
+                                                        <a class="collapsed" data-bs-toggle="collapse" href="#collapse-two" aria-expanded="false" aria-controls="collapse-two">
+                                                            我们努力的方向是什么？
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapse-two" class="collapse" data-bs-parent="#sidebar-tab-content" role="tabpanel" aria-labelledby="qus-B">
+                                                    <div class="card-body">
+                                                        人们努力的方向是尽可能让它们二者“脱钩”，哪怕是部分地脱钩，也比同步增长好，因为只有这样才能把资源节约和环境保护工作做得更好。
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="accordion-C" class="card tab-pane" role="tabpanel" aria-labelledby="tab-C">
+                                                <div class="card-header" role="tab" id="qus-C">
+                                                    <h5 class="mb-0">
+                                                        <a class="collapsed" data-bs-toggle="collapse" href="#collapse-three" aria-expanded="true" aria-controls="collapse-three">
+                                                            本站的依据
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapse-three" class="collapse" data-bs-parent="#sidebar-tab-content" role="tabpanel" aria-labelledby="qus-C">
+                                                    <div class="card-body">
+                                                        在工业化初期，经济增长与资源消耗呈 正相关关系；不过，当经济发展到较发达阶段后，资源消耗则不会随着经济增长而增加，
+                                                        甚至两者会呈负相关关系。Petri Tapio 根据脱钩概念，创造了“脱钩弹性”理论，
+                                                        将 脱钩指标可以分为连结、脱钩、负脱钩三种状态，而依据它们的弹性值不同，又可以把 它们分为八大类。
+                                                        强脱钩  弱脱钩 衰退脱钩 强负脱钩 负弱脱钩  扩张性负脱钩 扩张性连接 衰退连接
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="service-section">
+
+
+            <div class="career-detail-section">
+                <div class="career-detail-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="career-detail-container">
+                                    <div class="job-description">
+                                        <ul>
+                                            <li>
+                                                <span>单位 :</span>
+                                                <h4>万吨</h4>
+                                            </li>
+                                            <li>
+                                                <span>时间 :</span>
+                                                <h4>2010 - 2020</h4>
+                                            </li>
+
+                                        </ul>
+
+                                        <div id="lmdi_beijing" style="min-height: 250px; height: 250px;
+                                max-height: 250px; max-width: 100%;background-color: #ffffff">
+                                        </div>
+                                        <!--                                    <div id="index_carbon_composition_tianjin" style="min-height: 250px; height: 250px;-->
+                                        <!--                                        max-height: 250px; max-width: 100%;background-color: #ffffff">-->
+                                        <!--                                    </div>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 order-lg-first">
+                                <div class="sidebar">
+                                    <div class="widget-bg sidebar-list">
+                                        <h4 class="bg-title">北京碳排放影响因素分析</h4>
+                                        <ul>
+                                            <li><i class="fas fa-minus"></i>影响因素为对碳排放的变化趋势的影响</li>
+                                            <li><i class="fas fa-minus"></i>以能源结构、能源消费强度、人口规模、经济发展水平四点主要因素进行了因素分解</li>
+                                            <li><i class="fas fa-minus"></i>影响因素之和为测试年与基年的碳排放变化量</li>
+                                            <li><i class="fas fa-minus"></i>系统采用LMDI算法</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </section>
+        <section class="service-section">
+
+
+            <div class="career-detail-section">
+                <div class="career-detail-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="career-detail-container">
+                                    <div class="job-description">
+                                        <ul>
+                                            <li>
+                                                <span>单位 :</span>
+                                                <h4>万吨</h4>
+                                            </li>
+                                            <li>
+                                                <span>时间 :</span>
+                                                <h4>2010 - 2020</h4>
+                                            </li>
+
+                                        </ul>
+
+                                        <div id="lmdi_tianjin" style="min-height: 250px; height: 250px;
+                                max-height: 250px; max-width: 100%;background-color: #ffffff">
+                                        </div>
+                                        <!--                                    <div id="index_carbon_composition_tianjin" style="min-height: 250px; height: 250px;-->
+                                        <!--                                        max-height: 250px; max-width: 100%;background-color: #ffffff">-->
+                                        <!--                                    </div>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 order-lg-first">
+                                <div class="sidebar">
+                                    <div class="widget-bg sidebar-list">
+                                        <h4 class="bg-title">天津碳排放影响因素分析</h4>
+                                        <ul>
+                                            <li><i class="fas fa-minus"></i>影响因素为对碳排放的变化趋势的影响</li>
+                                            <li><i class="fas fa-minus"></i>以能源结构、能源消费强度、人口规模、经济发展水平四点主要因素进行了因素分解</li>
+                                            <li><i class="fas fa-minus"></i>能源结构是天津碳排放的主要的抑制因素</li>
+                                            <li><i class="fas fa-minus"></i>经济发展是天津碳排放的主要的促进因素</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="service-section">
+            <div class="career-detail-section">
+                <div class="career-detail-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="career-detail-container">
+                                    <div class="job-description">
+                                        <ul>
+                                            <li>
+                                                <span>单位 :</span>
+                                                <h4>万吨</h4>
+                                            </li>
+                                            <li>
+                                                <span>时间 :</span>
+                                                <h4>2010 - 2020</h4>
+                                            </li>
+
+                                        </ul>
+
+                                        <div id="lmdi_hebei" style="min-height: 250px; height: 250px;
+                                max-height: 250px; max-width: 100%;background-color: #ffffff">
+                                        </div>
+                                        <!--                                    <div id="index_carbon_composition_tianjin" style="min-height: 250px; height: 250px;-->
+                                        <!--                                        max-height: 250px; max-width: 100%;background-color: #ffffff">-->
+                                        <!--                                    </div>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 order-lg-first">
+                                <div class="sidebar">
+                                    <div class="widget-bg sidebar-list">
+                                        <h4 class="bg-title">河北碳排放影响因素分析</h4>
+                                        <ul>
+                                            <li><i class="fas fa-minus"></i>影响因素为对碳排放的变化趋势的影响</li>
+                                            <li><i class="fas fa-minus"></i>以能源结构、能源消费强度、人口规模、经济发展水平四点主要因素进行了因素分解</li>
+                                            <li><i class="fas fa-minus"></i>近年来河北碳排放量一直处于增长状态</li>
+                                            <li><i class="fas fa-minus"></i>人口规模对河北碳排放影响较小，经济发展是河北碳排放的主要促进因素</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <!-- home callback section html start -->
+        <section class="callback-section" th:style="'background-image: url(/assets/images/img5.jpg)'">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-8">
+                        <div class="callback-content">
+                            <div class="section-head">
+                                <div class="back-title">BE A VOULNTEER</div>
+                                <h2 class="section-title">让我们为实现3060计划尽绵薄之力！！让我们为实现京津冀一体化共同奉献！！！让我们为京津冀协同发展以及产业转型<span class="primary-color">共同奋斗！！！！
+                                 <svg class="title-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                    <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"></path>
+                                 </svg>
+                                 </span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="button-right">
+                            <a href="volunteer.html" class="button-round-primary">加入我们</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay"></div>
+        </section>
+        <!-- home callback section html end -->
+    </main>
+    <footer id="colophon" class="site-footer footer-primary">
+        <div class="top-footer">
+            <div class="container">
+                <div class="upper-footer">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <aside class="widget widget_text">
+                                <div class="footer-logo">
+                                    <a href="index.html"><img th:src="@{/assets/img/hebut.png}" alt=""></a>
+                                </div>
+                                <div class="textwidget widget-text">
+                                    合作伙伴：陈小华，陈小虎，陈笑花，陈小花，陈泡泡，陈宝宝，陈跑跑，加藤陈，野比大陈，niall chen,陈小小，陈大力，陈可乐，陈乐乐。
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <aside class="widget widget_text">
+                                <h3 class="widget-title">Contact Information</h3>
+                                <p>Feel free to contact and reach us !</p>
+                                <div class="textwidget widget-text">
+                                    <ul>
+                                        <li>
+                                            <i aria-hidden="true" class="icon icon-map-marker1"></i>
+                                            河北工业大学北辰校区西三宿舍
+                                        </li>
+                                        <li>
+                                            <a href="tel:+1456657887">
+                                                <i aria-hidden="true" class="icon icon-phone1"></i>
+                                                +86 156-3063-1516
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="mailtop:info@domain.com">
+                                                <i aria-hidden="true" class="icon icon-envelope1"></i>
+                                                <span class="__cf_email__" data-cfemail="70191e161f30141f1d11191e5e131f1d">[email&#160;emirage@foxbox.com]</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <aside class="widget widget_map_hotspots">
+                                <h3 class="widget-title">Office Location</h3>
+                                <div class="widget-map">
+                                    <img th:src="@{/assets/images/map-img1.png}" alt="">
+                                    <div class="hotspot">
+                                        <div class="hotspot-one">
+                                            <a href="#">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </a>
+                                            <span class="hotspot-content">Petersburg</span>
+                                        </div>
+                                        <div class="hotspot-two">
+                                            <a href="#">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </a>
+                                            <span class="hotspot-content">Gerogiya</span>
+                                        </div>
+                                        <div class="hotspot-three">
+                                            <a href="#">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </a>
+                                            <span class="hotspot-content">South wales</span>
+                                        </div>
+                                        <div class="hotspot-four">
+                                            <a href="#">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </a>
+                                            <span class="hotspot-content">New Jersey</span>
+                                        </div>
+                                        <div class="hotspot-five">
+                                            <a href="#">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </a>
+                                            <span class="hotspot-content">Haiti</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <aside class="widget">
+                                <h3 class="widget-title">Support</h3>
+                                <ul>
+                                    <li>
+                                        <a href="contact.html">Help Center</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">Contact Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="donate.html">Payment Center</a>
+                                    </li>
+                                    <li>
+                                        <a href="event-archive.html">Parent Community</a>
+                                    </li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+                <div class="lower-footer">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="footer-newsletter">
+                                <h5>Subscribe us for more update & news !!</h5>
+                                <form class="newsletter">
+                                    <input type="email" name="email" placeholder="Enter Your Email">
+                                    <button type="submit" class="button-round-primary">Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-right">
+                            <div class="social-links">
+                                <ul>
+                                    <li>
+                                        <a href="https://www.facebook.com/" target="_blank">
+                                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.twitter.com/" target="_blank">
+                                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/" target="_blank">
+                                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/" target="_blank">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/" target="_blank">
+                                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="footer-menu">
+                                <ul>
+                                    <li>
+                                        <a href="policy.html">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="policy.html">Term & Condition</a>
+                                    </li>
+                                    <li>
+                                        <a href="faq.html">QQ</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <div class="container">
+                <div class="copy-right text-center">REACT &copy; 2023 HEBUT . 基于碳收支核算的京津冀碳排放 <a href="Http://www.bootstrapmb.com"></a>.碳分析与预测中心</div>
+            </div>
+        </div>
+    </footer>
+    <a id="backTotop" href="#" class="to-top-icon">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+    <!-- custom search field html -->
+    <div class="header-search-form">
+        <div class="container">
+            <div class="header-search-container">
+                <form class="search-form" role="search" method="get" >
+                    <input type="text" name="s" placeholder="Enter your text...">
+                </form>
+                <a href="#" class="search-close">
+                    <i class="fas fa-times"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- header html end -->
+</div>
+
+<!-- JavaScript -->
+<script th:src="@{/assets/vendors/jquery/jquery.js}"></script>
+<script th:src="@{/assets/vendors/waypoint/jquery.waypoints.min.js}"></script>
+<script th:src="@{/assets/vendors/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/vendors/progressbar-fill-visible/js/progressBar.min.js}"></script>
+<script th:src="@{/assets/vendors/jquery-ui/jquery-ui.min.js}"></script>
+<script th:src="@{/assets/vendors/countdown-date-loop-counter/loopcounter.js}"></script>
+<script th:src="@{/assets/vendors/counterup/jquery.counterup.js}"></script>
+<script th:src="@{/assets/vendors/modal-video/jquery-modal-video.min.js}"></script>
+<script th:src="@{/assets/vendors/masonry/masonry.pkgd.min.js}"></script>
+<script th:src="@{/assets/vendors/fancybox/dist/jquery.fancybox.min.js}"></script>
+<script th:src="@{/assets/vendors/slick/slick.min.js}"></script>
+<script th:src="@{/assets/vendors/slick-nav/jquery.slicknav.js}"></script>
+<script th:src="@{/assets/js/custom.js}"></script>
+
+
+<script type="text/javascript" th:src="@{/echarts/dist/echarts.min.js}"></script>
+
+
+<script th:src="@{/assets/js/pressure_cs_population.js}"></script>
+<script th:src="@{/assets/js/presure_cs_gdp.js}"></script>
+<script th:src="@{/assets/js/lmdi_beijing.js}"></script>
+<script th:src="@{/assets/js/lmdi_tianjin.js}"></script>
+<script th:src="@{/assets/js/lmdi_hebei.js}"></script>
+
+
+</body>
+</html>

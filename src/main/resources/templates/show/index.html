@@ -1,0 +1,831 @@
+﻿<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+   <head>
+
+
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--admin3.2-->
+      <link rel="stylesheet" th:href="@{/admin3.2/plugins/fontawesome-free/css/all.min.css}">
+      <!-- Theme style -->
+      <link rel="stylesheet" th:href="@{/admin3.2/dist/css/adminlte.min.css}">
+      <!-- Google Font: Source Sans Pro -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+
+
+
+      <link rel="shortcut icon" th:href="@{/img/二氧化碳浓度.png}">
+
+
+
+        <!-- favicon -->
+      <link rel="icon" type="image/png" th:href="@{/assets/images/favicon.png}">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" th:href="@{/assets/vendors/bootstrap/css/bootstrap.min.css}" media="all">
+      <!-- Fonts Awesome CSS -->
+      <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/fontawesome/css/all.min.css}">
+      <!-- Elmentkit Icon CSS -->
+      <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/elementskit-icon-pack/assets/css/ekiticons.css}">
+      <!-- Fonts Awesome CSS -->
+      <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/progressbar-fill-visible/css/progressBar.css}">
+      <!-- jquery-ui css -->
+      <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/jquery-ui/jquery-ui.min.css}">
+      <!-- modal video css -->
+      <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/modal-video/modal-video.min.css}">
+      <!-- light box css -->
+      <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/fancybox/dist/jquery.fancybox.min.css}">
+      <!-- slick slider css -->
+      <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/slick/slick.css}">
+      <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/slick/slick-theme.css}">
+      <!-- google fonts -->
+<!--      <link th:href="@{https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap}" rel="stylesheet">-->
+      <!-- Custom CSS -->
+      <link rel="stylesheet" type="text/css" th:href="@{/assets/style.css}">
+      <title>碳排放首页</title>
+   </head>
+   <body class="home">
+      <div id="siteLoader" class="site-loader">
+         <div class="preloader-content">
+            <img th:src="@{/assets/images/loader1.gif}" alt="">
+         </div>
+      </div>
+      <div id="page" class="full-page">
+         <header id="masthead" class="site-header site-header-transparent">
+            <!-- header html start -->
+            <div class="top-header">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-lg-8 d-none d-lg-block">
+                        <div class="header-contact-info">
+                           <ul>
+                              <li>
+                                 <a href="tel:+01-977-2599-12"><i class="fas fa-phone-alt"></i> +86-156-3063-1516</a>
+                              </li>
+                              <li>
+                                 <a href="#"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="0e6d61637e6f60774e6a61636f6760206d6163">[email&#160;emirage@foxbox.com]</span></a>
+                              </li>
+                              <li>
+                                 <i class="fas fa-map-marker-alt"></i> 双口镇 河北小清华
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 d-flex justify-content-lg-end justify-content-between">
+                        <div class="header-social social-links">
+                           <ul>
+                              <li>
+                                 <a href="https://www.facebook.com" target="_blank">
+                                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="https://www.twitter.com" target="_blank">
+                                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="https://www.youtube.com" target="_blank">
+                                    <i class="fab fa-youtube" aria-hidden="true"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="https://www.instagram.com" target="_blank">
+                                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="https://www.linkedin.com" target="_blank">
+                                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="header-search-icon">
+                           <button class="search-icon">
+                              <i class="fas fa-search"></i>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="bottom-header">
+               <div class="container">
+                  <div class="hgroup-wrap d-flex justify-content-between align-items-center">
+                     <div class="site-identity">
+                        <h1 class="site-title">
+                           <a href="index.html">
+                              <img th:src="@{/assets/img/hebut.png}" alt="logo">
+                           </a>
+                        </h1>
+                     </div>
+                     <div class="main-navigation">
+                        <nav id="navigation" class="navigation d-none d-lg-inline-block">
+                           <ul>
+                              <li class="current-menu-item">
+                                 <a th:href="@{/index}">碳核算</a>
+                              </li>
+                              <li>
+                                 <a th:href="@{/foot}">碳足迹</a>
+                              </li>
+                              <li >
+                                 <a th:href="@{/carbonpressure}">压力分析</a>
+                              </li>
+                              <li >
+                                 <a th:href="@{/anticipate}">碳排放预测</a>
+                              </li>
+                              <li>
+                                 <a th:href="@{#}">关于</a>
+                              </li>
+                           </ul>
+                        </nav>
+                        <div class="header-btn d-inline-block">
+                           <a th:href="@{/money}" class="button-round-primary">Donate Now</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="mobile-menu-container"></div>
+         </header>
+         <main id="content" class="site-main">
+
+<!--            /assets/images/banner-img.jpg   -->
+            <!-- home banner section html start -->
+            <section class="home-banner" th:style="'background-image: url(/assets/images/banner-img.jpg)'">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-lg-8 offset-lg-2">
+                        <div class="banner-content text-center">
+                           <div class="section-head">
+                              <div class="back-title">河工碳中心</div>
+                              <h2 class="section-title banner-title">京津冀碳收支核算 <span class="primary-color">系统
+                                 <svg class="title-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                    <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"></path>
+                                 </svg>
+                              </span></h2>
+                           </div>
+                           <div class="banner-text">
+                              <p>本系统通过对京津冀三省市全面的碳收支核算完成了对京津冀碳排放压力的分析及碳排放的预测</p>
+                           </div>
+                           <div class="banner-button">
+                              <a href="about.html" class="button-round-primary">Learn More</a>
+                              <a th:href="@{/money}" class="button-round-white">给我杯咖啡</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="overlay"></div>
+            </section>
+            <!-- home service section html end -->
+            <section class="service-section">
+               <div class="career-detail-section">
+                  <div class="career-detail-inner">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-lg-8">
+                              <div class="career-detail-container">
+
+                                 <div class="job-description">
+                                       <ul>
+                                          <li>
+                                             <span>单位 :</span>
+                                             <h4>万吨</h4>
+                                          </li>
+                                          <li>
+                                             <span>时间 :</span>
+                                             <h4>2010 - 2020</h4>
+                                          </li>
+
+                                       </ul>
+
+                                    <div id="index_carbon_total" style="min-height: 250px; height: 250px; max-height: 250px;
+                                    max-width: 100%;background-color: #ffffff"></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 order-lg-first">
+                              <div class="sidebar">
+                                 <div class="widget-bg sidebar-list">
+                                    <h4 class="bg-title">京津冀碳排放总量</h4>
+                                    <ul>
+                                       <li><i class="fas fa-minus"></i>这里展示京津冀总的碳排放</li>
+                                       <li><i class="fas fa-minus"></i>展示近十年的历史数据</li>
+                                       <li><i class="fas fa-minus"></i>这里可以看到碳排放的变化趋势</li>
+                                       <li><i class="fas fa-minus"></i>这里可以看到京津冀经济区三省市各自的占比</li>
+                                       <li><i class="fas fa-minus"></i><a class="fa-bluetooth">了解更多</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- home about section html start -->
+
+            <section class="service-section">
+               <div class="career-detail-section">
+                  <div class="career-detail-inner">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-lg-8">
+                              <div class="career-detail-container">
+                                 <div class="job-description">
+                                    <ul>
+                                       <li>
+                                          <span>单位 :</span>
+                                          <h4>万吨</h4>
+                                       </li>
+                                       <li>
+                                          <span>时间 :</span>
+                                          <h4>2010 - 2020</h4>
+                                       </li>
+
+                                    </ul>
+                                    <div id="index_carbon_composition_beijing" style="min-height: 250px; height: 250px;
+                                        max-height: 250px; max-width: 100%;background-color: #ffffff">
+                                    </div>
+<!--                                    <div id="index_carbon_composition_tianjin" style="min-height: 250px; height: 250px;-->
+<!--                                        max-height: 250px; max-width: 100%;background-color: #ffffff">-->
+<!--                                    </div>-->
+
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 order-lg-first">
+                              <div class="sidebar">
+                                 <div class="widget-bg sidebar-list">
+                                    <h4 class="bg-title">北京排放总量</h4>
+                                    <ul>
+                                       <li><i class="fas fa-minus"></i>这里展示北京总的碳排放</li>
+                                       <li><i class="fas fa-minus"></i>展示近十年的历史数据</li>
+                                       <li><i class="fas fa-minus"></i>这里可以看到碳排放的变化趋势</li>
+                                       <li><i class="fas fa-minus"></i>可以看到北京碳排放的具体组成</li>
+                                       <li><i class="fas fa-minus"></i><a class="fa-bluetooth">了解更多</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- home progress section html start -->
+
+            <!-- home charity section html start -->
+            <section class="charity-section bg-light-grey">
+
+
+
+               <div class="career-detail-section">
+                  <div class="career-detail-inner">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-lg-8">
+                              <div class="career-detail-container">
+                                 <div class="job-description">
+                                    <ul>
+                                       <li>
+                                          <span>单位 :</span>
+                                          <h4>万吨</h4>
+                                       </li>
+                                       <li>
+                                          <span>时间 :</span>
+                                          <h4>2010 - 2020</h4>
+                                       </li>
+
+                                    </ul>
+                                    <div id="index_carbon_composition_tianjin" style="min-height: 250px; height: 250px;
+                                        max-height: 250px; max-width: 100%;background-color: #ffffff">
+                                    </div>
+                                    <!--                                    <div id="index_carbon_composition_tianjin" style="min-height: 250px; height: 250px;-->
+                                    <!--                                        max-height: 250px; max-width: 100%;background-color: #ffffff">-->
+                                    <!--                                    </div>-->
+
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 order-lg-first">
+                              <div class="sidebar">
+                                 <div class="widget-bg sidebar-list">
+                                    <h4 class="bg-title">天津排放总量</h4>
+                                    <ul>
+                                       <li><i class="fas fa-minus"></i>这里展示天津总的碳排放</li>
+                                       <li><i class="fas fa-minus"></i>展示近十年的历史数据</li>
+                                       <li><i class="fas fa-minus"></i>这里可以看到碳排放的变化趋势</li>
+                                       <li><i class="fas fa-minus"></i>可以看到天津碳排放的具体组成</li>
+                                       <li><i class="fas fa-minus"></i><a class="fa-bluetooth">了解更多</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+
+            </section>
+
+
+
+            <!-- home charity section html start -->
+            <section class="charity-section bg-light-grey">
+
+
+
+               <div class="career-detail-section">
+                  <div class="career-detail-inner">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-lg-8">
+                              <div class="career-detail-container">
+                                 <div class="job-description">
+                                    <ul>
+                                       <li>
+                                          <span>单位 :</span>
+                                          <h4>万吨</h4>
+                                       </li>
+                                       <li>
+                                          <span>时间 :</span>
+                                          <h4>2010 - 2020</h4>
+                                       </li>
+
+                                    </ul>
+                                    <div id="index_carbon_composition_hebei" style="min-height: 250px; height: 250px;
+                                        max-height: 250px; max-width: 100%;background-color: #ffffff">
+                                    </div>
+                                    <!--                                    <div id="index_carbon_composition_tianjin" style="min-height: 250px; height: 250px;-->
+                                    <!--                                        max-height: 250px; max-width: 100%;background-color: #ffffff">-->
+                                    <!--                                    </div>-->
+
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-4 order-lg-first">
+                              <div class="sidebar">
+                                 <div class="widget-bg sidebar-list">
+                                    <h4 class="bg-title">河北排放总量</h4>
+                                    <ul>
+                                       <li><i class="fas fa-minus"></i>这里展示河北总的碳排放</li>
+                                       <li><i class="fas fa-minus"></i>展示近十年的历史数据</li>
+                                       <li><i class="fas fa-minus"></i>这里可以看到碳排放的变化趋势</li>
+                                       <li><i class="fas fa-minus"></i>可以看到河北碳排放的具体组成</li>
+                                       <li><i class="fas fa-minus"></i><a class="fa-bluetooth">了解更多</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+
+            </section>
+
+            <!-- home contact section html start -->
+
+
+<!--            /assets/images/img5.jpg   -->
+            <section th:style="'background-image: url(/assets/images/img5.jpg)'">
+               <div class="container">
+                  <div class="row align-items-center">
+                     <div class="col-lg-6">
+                        <div class="section-head white-section-head">
+                           <div class="back-title">关于河工碳中心</div>
+                           <h2 class="section-title">We Have Power Today To Change <span class="primary-color">Tomorrow!
+                              <svg class="title-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                 <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"></path>
+                              </svg>
+                              </span>
+                           </h2>
+                           <div class="section-disc">
+                              为了响应习主席在国际大会上的庄严承诺，我们一起！积极进取，甘于奉献，为完成美丽中国梦贡献自己的力量，为了3060碳达峰碳中和的宏伟目标奋进！！！
+                           </div>
+                        </div>
+                        <div class="video-button">
+                           <a id="video-container-two" data-video-id="IUN664s7N-c">
+                              <i class="fas fa-play"></i>
+                           </a>
+                           <span>播放宣传片</span>
+                        </div>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="home-contact-form">
+                           <form class="contact-form row">
+                              <div class="col-12 mb-4">
+                                 <input type="text" class="form-control" placeholder="Enter Name*">
+                              </div>
+                              <div class="col-12 mb-4">
+                                 <input type="email" class="form-control" placeholder="Enter Email*">
+                              </div>
+                              <div class="col-sm-7 mb-4">
+                                 <input type="number" class="form-control" placeholder="Enter Phone No*">
+                              </div>
+                              <div class="col-sm-5 mb-4">
+                                 <input type="number" class="form-control" placeholder="Enter Code*">
+                              </div>
+                              <div class="col-12">
+                                 <button type="submit" class="button-round-secondary">Get Involve Today</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="overlay"></div>
+            </section>
+            <!-- 下面这个是捐赠者的评论 -->
+
+            <section class="testimonial-section bg-light-grey">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-lg-8 offset-lg-2">
+                        <div class="section-head text-center">
+                           <div class="back-title">TESTIMONIAL</div>
+                              <h2 class="section-title">捐赠者的<span class="primary-color">评论
+                                 <svg class="title-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                    <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"></path>
+                                 </svg>
+                              </span>
+                           </h2>
+                           <div class="section-disc">
+                              感谢这些投资者们，他们的捐赠是河工碳中心的前进的动力。让我们共同进步，为了京津冀的碳达峰碳中和共同努力！！！
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="testimonial-inner">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="testimonial-item d-flex flex-wrap align-items-center">
+                              <figure class="testimonial-img">
+                                 <img th:src="@{/assets/img/wang.jpg}" alt="">
+                              </figure>
+                              <div class="testimonial-content">
+                                 <p>“党的二十大报告把“推动绿色发展，促进人与自然和谐共生”作为专章论述，中央经济工作会议再次强调“推动经济社会发展绿色转型”。“绿色低碳发展行动”已成为城市的共同发展理念，实现碳达峰碳中和是绿色低碳发展的必由之路。这个项目主要研究~~~（碳中和碳达峰），聚焦重点领域和关键环节，寻找发力点和突破口，对我国“双碳”目标如期实现具有重要意义。”</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="testimonial-item d-flex flex-wrap align-items-center">
+                              <figure class="testimonial-img">
+                                 <img th:src="@{/assets/img/1111.jpg}" alt="">
+                              </figure>
+                              <div class="testimonial-content">
+                                 <p>“绿色发展是顺应自然、促进人与自然和谐共生的发展，是用最少资源环境代价取得最大经济社会效益的发展，是高质量、可持续的发展，已经成为各国共识。 几千年来，中华民族尊重自然、保护自然，生生不息、繁衍发展，倡导“天人合一”是中华文明的鲜明特色。”</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="testimonial-item d-flex flex-wrap align-items-center">
+                              <figure class="testimonial-img">
+                                 <img th:src="@{/assets/img/22222.jpg}" alt="">
+                              </figure>
+                              <div class="testimonial-content">
+                                 <p>“我和作者是好朋友，为了这个项目他常常早晨起得很早，一溜烟就不见人影，晚上背着书包回来也是行色匆匆，
+                                    几次见到他为了查阅文献还是什么，在熄灯之后去楼下宿管那里蹭电，继续设计项目，让人不禁潸然泪下”</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="testimonial-item d-flex flex-wrap align-items-center">
+                              <figure class="testimonial-img">
+                                 <img th:src="@{/assets/img/333.jpg}" alt="">
+                              </figure>
+                              <div class="testimonial-content">
+                                 <p>“京津冀碳压力分析与预测系统是一个极其优秀的毕业设计项目，不仅功能完备服务饱满
+                                    而且顺应时代大潮流，体现了3060，北京产业转型，京津冀一体化等多种战略级发展策略”</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="pattern-overlay"></div>
+            </section>
+            <!-- home blog section html start -->
+            <section class="blog-section">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-lg-8 offset-lg-2">
+                        <div class="section-head text-center">
+                           <div class="back-title">RECENT BLOG</div>
+                              <h2 class="section-title">Our Latest <span class="primary-color">Insights
+                                 <svg class="title-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                    <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"></path>
+                                 </svg>
+                              </span>
+                           </h2>
+                           <div class="section-disc">
+                             为了更快达到碳达峰碳中和，实现绿水青山就是金山银山，我们也经常举行植树造林，回收废弃物等活动。
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="blog-inner">
+                     <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                           <article class="post">
+                              <figure class="feature-image">
+                                 <a href="blog-single(nononon).html">
+                                    <img th:src="@{/assets/images/img7.jpg}" alt="">
+                                 </a>
+                                 <span class="cat-meta">
+                                    <a href="blog-archive（nonono）.html">自然</a>
+                                 </span>
+                              </figure>
+                              <div class="entry-content">
+                                 <h4>
+                                    <a href="blog-single(nononon).html">我们植树造林  增加自然碳汇 提高生态承载力</a>
+                                 </h4>
+                              </div>
+                              <div class="entry-meta">
+                                 <span class="posted-on">
+                                    <a href="blog-single(nononon).html">2023-4-01</a>
+                                 </span>
+                                 <span class="comments-link">
+                                    <a href="blog-single(nononon).html">43 Comments</a>
+                                 </span>
+                              </div>
+                           </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                           <article class="post">
+                              <figure class="feature-image">
+                                 <a href="blog-single(nononon).html">
+                                    <img th:src="@{/assets/images/img8.jpg}" alt="">
+                                 </a>
+                                 <span class="cat-meta">
+                                    <a href="blog-archive（nonono）.html">环保</a>
+                                 </span>
+                              </figure>
+                              <div class="entry-content">
+                                 <h4>
+                                    <a href="blog-single(nononon).html">对于难以降解的垃圾，我们收集起来从而进行重复循环的利用</a>
+                                 </h4>
+                              </div>
+                              <div class="entry-meta">
+                                 <span class="posted-on">
+                                    <a href="blog-single(nononon).html">2023-3-27</a>
+                                 </span>
+                                 <span class="comments-link">
+                                    <a href="blog-single(nononon).html">193 Comments</a>
+                                 </span>
+                              </div>
+                           </article>
+                        </div>
+
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- home callback section html start -->
+            <section class="callback-section" th:style="'background-image: url(/assets/images/img5.jpg)'">
+               <div class="container">
+                  <div class="row align-items-center justify-content-between">
+                     <div class="col-lg-8">
+                        <div class="callback-content">
+                           <div class="section-head">
+                              <div class="back-title">BE A VOULNTEER</div>
+                              <h2 class="section-title">让我们为实现3060计划尽绵薄之力！！让我们为实现京津冀一体化共同奉献！！！让我们为京津冀协同发展以及产业转型<span class="primary-color">共同奋斗！！！！
+                                 <svg class="title-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                    <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"></path>
+                                 </svg>
+                                 </span>
+                              </h2>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-4">
+                        <div class="button-right">
+                           <a href="volunteer.html" class="button-round-primary">加入我们</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="overlay"></div>
+            </section>
+            <!-- home callback section html end -->
+         </main>
+         <footer id="colophon" class="site-footer footer-primary">
+            <div class="top-footer">
+               <div class="container">
+                  <div class="upper-footer">
+                     <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                           <aside class="widget widget_text">
+                              <div class="footer-logo">
+                                 <a href="index.html"><img th:src="@{/assets/img/hebut.png}" alt=""></a>
+                              </div>
+                              <div class="textwidget widget-text">
+                                 合作伙伴：陈小华，陈小虎，陈笑花，陈小花，陈泡泡，陈宝宝，陈跑跑，加藤陈，野比大陈，niall chen,陈小小，陈大力，陈可乐，陈乐乐。
+                              </div>
+                           </aside>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                           <aside class="widget widget_text">
+                              <h3 class="widget-title">Contact Information</h3>
+                              <p>Feel free to contact and reach us !</p>
+                              <div class="textwidget widget-text">
+                                 <ul>
+                                    <li>
+                                       <i aria-hidden="true" class="icon icon-map-marker1"></i>
+                                       河北工业大学北辰校区西三宿舍
+                                    </li>
+                                    <li>
+                                       <a href="tel:+1456657887">
+                                          <i aria-hidden="true" class="icon icon-phone1"></i>
+                                          +86 156-3063-1516
+                                       </a>
+                                    </li>
+                                    <li>
+                                       <a href="mailtop:info@domain.com">
+                                          <i aria-hidden="true" class="icon icon-envelope1"></i>
+                                          <span class="__cf_email__" data-cfemail="70191e161f30141f1d11191e5e131f1d">[email&#160;emirage@foxbox.com]</span>
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </aside>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                           <aside class="widget widget_map_hotspots">
+                              <h3 class="widget-title">Office Location</h3>
+                              <div class="widget-map">
+                                 <img th:src="@{/assets/images/map-img1.png}" alt="">
+                                 <div class="hotspot">
+                                    <div class="hotspot-one">
+                                       <a href="#">
+                                          <i class="fas fa-map-marker-alt"></i>
+                                       </a>
+                                       <span class="hotspot-content">Petersburg</span>
+                                    </div>
+                                    <div class="hotspot-two">
+                                       <a href="#">
+                                          <i class="fas fa-map-marker-alt"></i>
+                                       </a>
+                                       <span class="hotspot-content">Gerogiya</span>
+                                    </div>
+                                    <div class="hotspot-three">
+                                       <a href="#">
+                                          <i class="fas fa-map-marker-alt"></i>
+                                       </a>
+                                       <span class="hotspot-content">South wales</span>
+                                    </div>
+                                    <div class="hotspot-four">
+                                       <a href="#">
+                                          <i class="fas fa-map-marker-alt"></i>
+                                       </a>
+                                       <span class="hotspot-content">New Jersey</span>
+                                    </div>
+                                    <div class="hotspot-five">
+                                       <a href="#">
+                                          <i class="fas fa-map-marker-alt"></i>
+                                       </a>
+                                       <span class="hotspot-content">Haiti</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </aside>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                           <aside class="widget">
+                              <h3 class="widget-title">Support</h3>
+                              <ul>
+                                 <li>
+                                    <a href="contact.html">Help Center</a>
+                                 </li>
+                                 <li>
+                                    <a href="contact.html">Contact Us</a>
+                                 </li>
+                                 <li>
+                                    <a href="donate.html">Payment Center</a>
+                                 </li>
+                                 <li>
+                                    <a href="event-archive.html">Parent Community</a>
+                                 </li>
+                              </ul>
+                           </aside>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="lower-footer">
+                     <div class="row align-items-center">
+                        <div class="col-lg-6">
+                           <div class="footer-newsletter">
+                              <h5>Subscribe us for more update & news !!</h5>
+                              <form class="newsletter">
+                                 <input type="email" name="email" placeholder="Enter Your Email">
+                                 <button type="submit" class="button-round-primary">Subscribe</button>
+                              </form>
+                           </div>
+                        </div>
+                        <div class="col-lg-6 text-right">
+                           <div class="social-links">
+                              <ul>
+                                 <li>
+                                    <a href="https://www.facebook.com/" target="_blank">
+                                       <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                    </a>
+                                 </li>
+                                 <li>
+                                    <a href="https://www.twitter.com/" target="_blank">
+                                       <i class="fab fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                 </li>
+                                 <li>
+                                    <a href="https://www.youtube.com/" target="_blank">
+                                       <i class="fab fa-youtube" aria-hidden="true"></i>
+                                    </a>
+                                 </li>
+                                 <li>
+                                    <a href="https://www.instagram.com/" target="_blank">
+                                       <i class="fab fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                 </li>
+                                 <li>
+                                    <a href="https://www.linkedin.com/" target="_blank">
+                                       <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                    </a>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="footer-menu">
+                              <ul>
+                                 <li>
+                                    <a href="policy.html">Privacy Policy</a>
+                                 </li>
+                                 <li>
+                                    <a href="policy.html">Term & Condition</a>
+                                 </li>
+                                 <li>
+                                    <a href="faq.html">QQ</a>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="bottom-footer">
+               <div class="container">
+                  <div class="copy-right text-center">REACT &copy; 2023 HEBUT . 基于碳收支核算的京津冀碳排放 <a href="Http://www.bootstrapmb.com"></a>.碳分析与预测中心</div>
+               </div>
+            </div>
+         </footer>
+         <a id="backTotop" href="#" class="to-top-icon">
+            <i class="fas fa-chevron-up"></i>
+         </a>
+         <!-- custom search field html -->
+            <div class="header-search-form">
+               <div class="container">
+                  <div class="header-search-container">
+                     <form class="search-form" role="search" method="get" >
+                        <input type="text" name="s" placeholder="Enter your text...">
+                     </form>
+                     <a href="#" class="search-close">
+                        <i class="fas fa-times"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         <!-- header html end -->
+      </div>
+
+      <!-- JavaScript -->
+      <script th:src="@{/assets/vendors/jquery/jquery.js}"></script>
+      <script th:src="@{/assets/vendors/waypoint/jquery.waypoints.min.js}"></script>
+      <script th:src="@{/assets/vendors/bootstrap/js/bootstrap.min.js}"></script>
+      <script th:src="@{/assets/vendors/progressbar-fill-visible/js/progressBar.min.js}"></script>
+      <script th:src="@{/assets/vendors/jquery-ui/jquery-ui.min.js}"></script>
+      <script th:src="@{/assets/vendors/countdown-date-loop-counter/loopcounter.js}"></script>
+      <script th:src="@{/assets/vendors/counterup/jquery.counterup.js}"></script>
+      <script th:src="@{/assets/vendors/modal-video/jquery-modal-video.min.js}"></script>
+      <script th:src="@{/assets/vendors/masonry/masonry.pkgd.min.js}"></script>
+      <script th:src="@{/assets/vendors/fancybox/dist/jquery.fancybox.min.js}"></script>
+      <script th:src="@{/assets/vendors/slick/slick.min.js}"></script>
+      <script th:src="@{/assets/vendors/slick-nav/jquery.slicknav.js}"></script>
+      <script th:src="@{/assets/js/custom.js}"></script>
+
+
+      <script type="text/javascript" th:src="@{/echarts/dist/echarts.min.js}"></script>
+
+
+<script th:src="@{/assets/js/index_chart.js}"></script>
+
+      <script th:src="@{/assets/js/index_composition_beijing.js}"></script>
+      <script th:src="@{/assets/js/index_composition_tianjin.js}"></script>
+      <script th:src="@{/assets/js/index_composition_hebei.js}"></script>
+
+   </body>
+</html>

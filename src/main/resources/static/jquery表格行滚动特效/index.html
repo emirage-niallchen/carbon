@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>jquery表格行滚动特效</title>
+
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+
+    <script type="text/javascript" src="js/roll/scroll.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/scroll.css" />
+
+
+    <style>
+        .content {
+            padding-top: 50px;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            padding-bottom: 50px;
+        }
+
+        .croll-width {
+            width: 80px;
+            height: 50px;
+        }
+        /*偶数行样式*/
+        .evenRowStyle {
+            background-color: #f8f8f8;
+        }
+        /*访问样式*/
+        .rowhover {
+            background-color: #52c1a1;
+            color: #FFF;
+            font-weight: bold;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <script type="text/javascript">
+        //字段要和kgo-scroll-head 下的div的name属性一一对应
+        var dataObj = [
+                { name: '高圆圆', sex: '女', job: '演员', remark: '逆生长女神' },
+                { name: '刘亦菲', sex: '女', job: '演员', remark: '仙女姐姐' },
+                { name: '杨紫', sex: '女', job: '演员', remark: '家有儿女' },
+                { name: 'Angelababy', sex: '女', job: '演员', remark: '新四小花旦' },
+                { name: '刘诗诗', sex: '女', job: '演员', remark: '新四小花旦' },
+                { name: '杨幂', sex: '女', job: '演员', remark: '新四小花旦' },
+                { name: '倪妮', sex: '女', job: '演员', remark: '新四小花旦' },
+                { name: '古力娜扎', sex: '女', job: '演员', remark: '异域风情' },
+                { name: '郑爽', sex: '女', job: '演员', remark: '流星雨' },
+                { name: '鞠婧祎', sex: '女', job: '演员', remark: '4000千啊' },
+                { name: '关晓彤', sex: '女', job: '演员', remark: '国民闺女' },
+                { name: '袁冰妍', sex: '女', job: '演员', remark: '老九门丫头' },
+                { name: '迪丽热巴', sex: '女', job: '演员', remark: '胖迪不胖' },
+                { name: '佟丽娅', sex: '女', job: '演员', remark: '据说360度无死角' },
+        ];
+
+        $(function () {
+            $('.myscroll').beginScroll({
+                speed: 60, //数值越大，速度越慢
+                rowHeight: 16//li的高度
+            });
+            $('.myscroll').initScroll(dataObj);
+            $('.myscroll').rowOnclick(function (rowobj) {
+                console.log(rowobj.alarm_device);
+            });
+            $('.myscroll').addClassForEven('evenRowStyle');
+            $('.myscroll').addClassForHover('rowhover');
+
+
+            $('.myscrol2').beginScroll({
+                speed: 100, //数值越大，速度越慢
+                rowHeight: 16//li的高度
+            });
+
+
+        });
+    </script>
+
+
+    <div class="content">
+
+        <div class="myscroll kgo-scroll-sty">
+
+            <div class="kgo-scroll-head">
+
+                <div class="baseStyle croll-width" name="name">姓名</div>
+
+                <div class="baseStyle croll-width" name="sex">性别</div>
+
+                <div class="baseStyle croll-width" name="job">职业</div>
+
+                <div class="baseStyle croll-width" name="remark" style="width: 200px;">简介</div>
+
+            </div>
+
+            <ul class="kgo-croll-body"></ul>
+
+        </div>
+        <br><br>
+
+        <div class="myscrol2 kgo-scroll-sty">
+
+            <div class="kgo-scroll-head">
+
+                <div class="baseStyle croll-width" name="name">姓名</div>
+
+                <div class="baseStyle croll-width" name="sex">性别</div>
+
+                <div class="baseStyle croll-width" name="job">职业</div>
+
+                <div class="baseStyle croll-width" name="remark" style="width: 200px;">简介</div>
+
+            </div>
+
+            <ul class="kgo-croll-body"></ul>
+
+        </div>
+
+    </div>
+
+ 
+</body>
+
+</html>

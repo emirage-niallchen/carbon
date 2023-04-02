@@ -1,0 +1,121 @@
+/**
+ * @name jQuery-Absolute-Progressbar
+ * @author: AbsolutePlugins
+ * @authorURL https://absoluteplugins.com
+ * @version 1.0.0
+ * @license GPL-3.0-or-later
+ */
+:root {
+  /* stylelint-disable-next-line */
+  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --clr-dark: #5f5f5f;
+  --clr-white: #fff;
+  --clr-pink: #785af0;
+  --clr-blue: #148cfa;
+  --clr-light-green: #64f5d2;
+  --border-clr: #e6e6e6;
+}
+
+.ab-progress {
+  position: relative;
+  -webkit-user-select: none;
+          user-select: none;
+  box-sizing: border-box;
+}
+.ab-progress * {
+  -webkit-user-select: none;
+          user-select: none;
+  box-sizing: border-box;
+}
+.ab-progress + .ab-progress {
+  margin-top: 20px;
+}
+.ab-progress .progress-title {
+  z-index: 100;
+  color: var(--progress-title-clr, var(--clr-white));
+  font-family: var(--progress-title-font, var(--font-family));
+  font-size: var(--progress-title-fs, 15px);
+  font-weight: var(--progress-title-fw, 700);
+}
+.ab-progress .progress-indicator {
+  padding-bottom: 7px;
+  position: relative;
+  margin: 5px 0;
+  font-family: var(--font-family);
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: 400;
+  color: #2e2e2e;
+}
+.ab-progress .progress-indicator-inner {
+  font-family: var(--progress-font, var(--font-family));
+  font-weight: var(--progress-fw, 500);
+  font-size: var(--progress-fs, 16px);
+  line-height: 1;
+  padding: 8px 8px 7px;
+  border-radius: 3px;
+  color: var(--progress-indicator-color, var(--clr-white));
+  margin-bottom: 4px;
+  background: var(--progress-indicator-background, var(--clr-dark));
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+.ab-progress .progress-bar-wrap {
+  height: var(--progressbar-height, 6px);
+  background: var(--progressbar-background, #f0f0f0);
+  border-radius: var(--progressbar-radius, 6px);
+  border: 1px solid var(--progressbar-border, transparent);
+}
+.ab-progress .down-arrow {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid var(--progress-indicator-background, var(--clr-dark));
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+}
+.ab-progress .ab-progress-bar {
+  height: var(--progressbar-height, 6px);
+  /* stylelint-disable-next-line */
+  background: var(--progressbar-fill, linear-gradient(to right, var(--clr-pink) 0%, var(--clr-blue) 100%));
+  width: 0;
+  border-radius: var(--progressbar-radius, 6px);
+}
+
+.progress-tooltip {
+  --progress-title-clr: var(--clr-dark);
+}
+
+.progress-inline {
+  --progressbar-height: 35px;
+  --progressbar-background: transparent;
+  --progressbar-border: var(--border-clr);
+  --progressbar-fill: linear-gradient(to right, var(--clr-blue) 0%, var(--clr-light-green) 100%);
+  --progressbar-radius: 3px;
+  --progress-fw: 700;
+  --progress-fs: 13px;
+  --progress-indicator-color: var(var(--clr-white));
+  --progress-indicator-background: transparent;
+}
+.progress-inline .progress-title {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  padding: 0;
+  margin: 0;
+}
+.progress-inline .progress-indicator {
+  margin: 0;
+  padding: 0;
+}
+.progress-inline .progress-indicator-inner {
+  bottom: -36px;
+  transform: translateX(-100%);
+}
+.progress-inline .ab-progress-bar {
+  box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.15);
+}
+/*# sourceMappingURL=progressBar.css.map */

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>河工大碳中心</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="shortcut icon" th:href="@{/img/二氧化碳浓度.png}">
+    <link rel="stylesheet" th:href="@{/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/adminlte/bower_components/font-awesome/css/font-awesome.min.css}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" th:href="@{/adminlte/bower_components/Ionicons/css/ionicons.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/adminlte/css/AdminLTE.min.css}">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+          page. However, you can choose any other skin. Make sure you
+          apply the skin class to the body tag so the changes take effect. -->
+    <link rel="stylesheet" th:href="@{/adminlte/css/skins/_all-skins.min.css}">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+
+    <!-- Google Font -->
+
+    <!-- DataTables -->
+    <link rel="stylesheet" th:href="@{/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css}" >
+    <!--layui样式-->
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+    <!--jqueryComfirm样式-->
+    <link rel="stylesheet" th:href="@{/adminlte/plugins/jqueryComfirm/jquery-confirm.min.css}"  >
+
+
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a  class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>碳</b></span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>碳核算与分析预测系统</b></span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">切换导航</span>
+            </a>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+
+                    <!-- User Account Menu -->
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- The user image in the navbar-->
+                            <img th:src="@{/img/user1.jpg}" class="user-image" alt="User Image">
+                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                            <span class="hidden-xs">陈博云</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <img th:src="@{/img/user1.jpg}" class="img-circle" alt="User Image">
+
+                                <p>
+                                    尊贵的管理员陈博云
+                                    <small>可以进行增删改查</small>
+                                </p>
+                            </li>
+
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a th:href="@{/index}"  class="btn btn-default btn-flat">查看数据</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a th:href="@{/logout}" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img th:src="@{/img/user1.jpg}" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>陈博云</p>
+                    <!-- Status -->
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+
+
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">功能</li>
+                <!-- Optionally, you can add icons to the links -->
+                <!--        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>碳排放</span></a></li>-->
+                <!--        <li><a href="#"><i class="fa fa-link"></i> <span>碳足迹</span></a></li>-->
+                <li>
+                    <a th:href="@{/agriculture/list}"><i class="fa fa-link"></i> <span>农业活动</span>
+                    </a>
+                </li>
+
+                <li >
+                    <a th:href="@{/plant_cover/list}"><i class="fa fa-link"></i> <span>经济发展</span>
+                    </a>
+                </li>
+
+                <li >
+                    <a th:href="@{/energy/list}"><i class="fa fa-link"></i> <span>能源消耗</span>
+                    </a>
+                </li>
+
+                <li >
+                    <a th:href="@{/husbandry/list}"><i class="fa fa-link"></i> <span>畜牧业</span>
+                    </a>
+                </li>
+
+                <li >
+                    <a th:href="@{/industrial/list}"><i class="fa fa-link"></i> <span>工业生产</span>
+                    </a>
+                </li>
+
+                <li >
+                    <a th:href="@{/plant_cover/list}"><i class="fa fa-link"></i> <span>植被覆盖</span>
+                    </a>
+                </li>
+
+                <li >
+                    <a th:href="@{/user/list}"><i class="fa fa-link"></i> <span>用户管理</span>
+                    </a>
+                </li>
+
+                <li >
+                    <a th:href="@{/waste/list}"><i class="fa fa-link"></i> <span>废弃物</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                植被覆盖填报
+                <small></small>
+            </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content container-fluid">
+            <!-- .box-body -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">列表</h3>
+                </div>
+
+                <div class="box-body">
+
+                    <!-- 数据表格 -->
+                    <div class="table-box">
+
+                        <!--工具栏-->
+                        <div class="pull-left">
+                            <div class="form-group form-inline">
+                                <div class="btn-group">
+                                    <button type="button" id="btn_add" name="btn_add" class="btn btn-success"
+                                            title="新建" onclick="">
+                                        <i class="fa fa-file-o"></i> 新建
+                                    </button>
+                                    <button type="button" id="refresh" name="refresh" class="btn btn-info"
+                                            title="刷新">
+                                        <i class="fa fa-refresh"></i> 刷新
+                                    </button>
+                                    <button type="button" id="export" name="export" class="btn btn-info"
+                                            title="导出"   th:onclick="|window.location.href='/excel/export/plant_cover'|">
+                                        <i class="fa fa-refresh"></i> 导出
+                                    </button>
+                                    <!--                                    <button type="button" id="import" name="import" class="btn btn-info"-->
+                                    <!--                                            title="导入"   th:onclick="|window.location.href='/excel/import/plant_cover'|" th:method="post">-->
+                                    <!--                                        <i class="fa fa-refresh"></i> 导入-->
+                                    <!--                                    </button>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+
+                            <!--                            th:href="@{/wordCollection(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}-->
+                            <div class="form-group form-inline">
+                                <form th:action="@{/plant_cover/search/}">
+                                    <input id="123" class="form-control" type="text" name="province"    th:value="${province}" placeholder="请输入检索内容"/>
+                                    <div class="btn-group">
+                                        <button class="btn btn-info btn-search" id="search" name="search"
+                                                onclick="search()">查找
+                                        </button>
+                                    </div>
+                                </form>
+                                <!--                                <select class="form-control" id="stype" name="type">-->
+                                <!--                                    <option value="0" selected>=请选择字段=</option>-->
+                                <!--                                    <option value="1">年份</option>-->
+                                <!--                                    <option value="2">省份</option>-->
+                                <!--                                </select>-->
+                                <!--                                <input type="text" id="svalue" name="content" class="form-control"-->
+                                <!--                                       placeholder="请输入查找字段值"/>-->
+                                <!--                                <div class="btn-group">-->
+                                <!--                                    <button class="btn btn-info btn-search" id="search" name="search"-->
+                                <!--                                            onclick="search()">查找-->
+                                <!--                                    </button>-->
+                                <!--                                </div>-->
+
+                            </div>
+                        </div>
+
+                        <!--工具栏/-->
+
+                        <!--数据列表-->
+
+                        <table id="example1" class="table table-bordered table-striped text-center">
+                            <thead>
+                            <tr>
+
+                                <th>年份</th>
+                                <th>省份</th>
+                                <th>森林</th>
+                                <th>耕地</th>
+                                <th>绿化</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr th:each="plant_cover:${plant_coverlist}">
+
+                                <td th:utext="${plant_cover.year}"></td>
+                                <td th:utext="${plant_cover.province}"></td>
+                                <td th:utext="${plant_cover.forest}"></td>
+                                <td th:utext="${plant_cover.farmland}"></td>
+                                <td th:utext="${plant_cover.greening}"></td>
+
+
+                                <td>
+
+                                    <!--                                        <button type="button" th:value="${plant_cover.id}" class="btn layui-bg-blue btn-sm" id="editplant_cover" name="editplant_cover">编辑-->
+                                    <!--                                        </button>-->
+
+                                    <button type="button" class="btn layui-bg-blue btn-sm" id="editplant_cover" name="editplant_cover"
+                                            th:value="${plant_cover.id}"
+                                            th:onclick="|javascript:edit(${plant_cover.id})|"
+                                    >编辑</button>
+
+
+                                    <button type="button" th:value="${plant_cover.id}" class="btn bg-red btn-sm" id="delplant_cover" name="delplant_cover"
+                                            th:onclick="|javascript:setDelete(${plant_cover.id})|"
+                                    >删除
+                                    </button>
+
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                        <!--数据列表/-->
+                    </div>
+                    <!-- 数据表格 /-->
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!--------------- 新增模态框（Modal） ---------------->
+            <div class="modal fade bs-example-modal-lg" id="addModal" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h3 class="modal-title" id="addModalLabel">新增</h3>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="year">年份</label>
+                                <input type="text" name="year" id = "year" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <label for="province">省份</label>
+                                <input type="text" name="province" id="province" class="form-control" placeholder="天津">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="forest">森林</label>
+                                <input type="text" name="forest" id="forest" class="form-control" placeholder="10000（万吨）">
+                            </div>
+                            <div class="form-group">
+                                <label for="farmland">耕地</label>
+                                <input type="text" name="farmland" id="farmland" class="form-control" placeholder="10000（万吨）">
+                            </div>
+                            <div class="form-group">
+                                <label for="greening">绿化</label>
+                                <input type="text" name="greening" id="greening" class="form-control" placeholder="10000（万吨）">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="close1" name="close1" class="btn btn-default"
+                                    data-dismiss="modal"><span class="glyphicon glyphicon-remove"
+                                                               aria-hidden="true"></span>关闭
+                            </button>
+                            <button type="button" id="btn_submit1" class="btn btn-primary"><span
+                                    class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--------------- 修改模态框（Modal） ---------------->
+            <div class="modal fade bs-example-modal-lg" id="updateModal" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h3 class="modal-title" id="updateModalLabel">修改</h3>
+                        </div>
+                        <div class="modal-body">
+                            <!--注意需要一个隐藏域的id用来传值-->
+                            <div class="form-group">
+                                <input type="hidden" id="id" name="id" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="year1">年份</label>
+                                <input type="text" name="year1" id = "year1" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <label for="province1">省份</label>
+                                <input type="text" name="province1" id="province1" class="form-control" placeholder="天津">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="forest1">森林</label>
+                                <input type="text" name="forest1" id="forest1" class="form-control" placeholder="10000（万吨）">
+                            </div>
+                            <div class="form-group">
+                                <label for="farmland1">耕地</label>
+                                <input type="text" name="farmland1" id="farmland1" class="form-control" placeholder="10000（万吨）">
+                            </div>
+                            <div class="form-group">
+                                <label for="greening1">绿化</label>
+                                <input type="text" name="greening1" id="greening1" class="form-control" placeholder="10000（万吨）">
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="close2" name="close2" class="btn btn-default"
+                                    data-dismiss="modal"><span class="glyphicon glyphicon-remove"
+                                                               aria-hidden="true"></span>关闭
+                            </button>
+                            <button type="button" id="btn_submit2" class="btn btn-primary"><span
+                                    class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+            Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+    immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script th:src="@{/adminlte/bower_components/jquery/dist/jquery.min.js}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script th:src="@{/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+
+
+
+
+<script th:src="@{/adminlte/js/demo.js}"></script>
+
+<!-- AdminLTE App -->
+<script th:src="@{/adminlte/js/adminlte.min.js}"></script>
+
+
+
+
+
+
+<!-- layui -->
+<script th:src="@{/layui/layui.js}"></script>
+<!-- DataTables -->
+<script th:src="@{/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js}"></script>
+<script  th:src="@{/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js}"></script>
+<!-- jquery-confirm jquery-form-->
+<script  th:src="@{/adminlte/plugins/jqueryComfirm/jquery-confirm.min.js} "></script>
+<script  th:src="@{/adminlte/plugins/jqueryComfirm/jquery-form.min.js}"></script>
+
+<script th:src="@{/js/plant_cover.js}"></script>
+
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}"/>
+    <script charset="UTF-8" type="text/javascript" th:src="@{/layui/layui.js}"></script>
+</head>
+<body>
+
+
+
+<div class="layui-tab">
+    <ul class="layui-tab-title">
+        <li class="layui-this">登录</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div  class="layui-tab-item layui-show">
+<!--            <form method="post" class="layui-form" th:action="@{/login/login/}"   >-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label">-->
+<!--                        用户名：-->
+<!--                    </label>-->
+<!--                    <div class="layui-input-inline">-->
+<!--                        <input type="text" name="username" class="layui-input" required lay-verify="required" placeholder="请输入用户名"><br>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label">-->
+<!--                        密码：-->
+<!--                    </label>-->
+<!--                    <div class="layui-input-inline">-->
+<!--                        <input type="password" name="password" class="layui-input" required lay-verify="required" placeholder="请输入密码"><br>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <button class="layui-btn" type="submit">登录</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+
+
+            <form class="replyform" action="/login" method="post" >
+
+                <p class="text-right">
+                    <input type="text" name="username" class="layui-input" id="username" required lay-verify="required" placeholder="请输入用户名"><br>
+                    <input type="password" name="password" class="layui-input" id = "password" required lay-verify="required" placeholder="请输入密码"><br>
+                    <button type="submit" id="loginBtn">&nbsp;&nbsp;登陆&nbsp;</button>
+                </p>
+            </form>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    layui.use(['element','form'],function () {
+        var element = layui.element
+            ,form=layui.form;
+    });
+</script>
+
+<script>
+    $(function(){
+        $("#loginBtn").click(login);
+    });
+    function publish() {
+
+        // 发送AJAX请求之前,将CSRF令牌设置到请求的消息头中.
+//    var token = $("meta[name='_csrf']").attr("content");
+//    var header = $("meta[name='_csrf_header']").attr("content");
+//    $(document).ajaxSend(function(e, xhr, options){
+//        xhr.setRequestHeader(header, token);
+//    });
+
+
+
+    }
+</script>
+
+</body>
+</html>
