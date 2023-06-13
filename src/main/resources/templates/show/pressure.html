@@ -42,7 +42,7 @@
     <!--      <link th:href="@{https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap}" rel="stylesheet">-->
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/assets/style.css}">
-    <title>碳排放压力分析</title>
+    <title>碳排放压力分析及预测系统</title>
 </head>
 <body class="home">
 <div id="siteLoader" class="site-loader">
@@ -160,8 +160,8 @@
                     <div class="col-lg-8 offset-lg-2">
                         <div class="banner-content text-center">
                             <div class="section-head">
-                                <div class="back-title">河工碳中心</div>
-                                <h2 class="section-title banner-title">碳压力 <span class="primary-color">分析
+
+                                <h2 class="section-title banner-title">碳排放压力分析及预测 <span class="primary-color">分析
                                  <svg class="title-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
                                     <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"></path>
                                  </svg>
@@ -221,10 +221,9 @@
                                     <div class="widget-bg sidebar-list">
                                         <h4 class="bg-title">京津冀人均碳排放</h4>
                                         <ul>
-                                            <li><i class="fas fa-minus"></i>人均碳排放是平均每个人产生的碳排放数量</li>
-                                            <li><i class="fas fa-minus"></i>我国由于人口基数大，人均碳排放量并不高</li>
-                                            <li><i class="fas fa-minus"></i>人均碳排放可以有效反映碳排放压力</li>
-                                            <li><i class="fas fa-minus"></i><a class="fa-bluetooth">了解更多</a></li>
+                                            <li><i class="fas fa-minus"></i>人均碳排放是衡量人口群体或地区碳排放压力的重要指标。</li>
+                                            <li><i class="fas fa-minus"></i>人均碳排放可以衡量碳排放压力的分布和强度。</li>
+                                            <li><i class="fas fa-minus"></i>通过分析人均碳排放量，可以为不同人口群体制定更好的减排策略。</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -280,10 +279,9 @@
                                     <div class="widget-bg sidebar-list">
                                         <h4 class="bg-title">京津冀的碳排放强度</h4>
                                         <ul>
-                                            <li><i class="fas fa-minus"></i>每单位国民生产总值所带来的二氧化碳排放量</li>
-                                            <li><i class="fas fa-minus"></i>即碳排放强度=碳排放量/GDP</li>
-                                            <li><i class="fas fa-minus"></i>碳排放强度大下降说明京津冀实现了一个低碳的发展模式</li>
-                                            <li><i class="fas fa-minus"></i><a class="fa-bluetooth">了解更多</a></li>
+                                            <li><i class="fas fa-minus"></i>碳排放强度即，每单位国民生产总值所带来的二氧化碳排放量</li>
+                                            <li><i class="fas fa-minus"></i>碳排放强度反应生产和经济发展过程中的碳排放水平，可以淡化不同地区经济结构和能源结构不同所造成的影响，是衡量碳排放压力都重要指标。</li>
+                                            <li><i class="fas fa-minus"></i>碳排放强度的下降说明京津冀实现了一个低碳的发展模式</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -459,8 +457,9 @@
                                     <div class="widget-bg sidebar-list">
                                         <h4 class="bg-title">京津冀脱钩指数</h4>
                                         <ul>
-                                            <li><i class="fas fa-minus"></i>展示了碳排放变化量、经济变化、弹性系数以及脱钩的耦合状态</li>
-                                            <li><i class="fas fa-minus"></i>本栏目分别展示了北京、天津、河北的脱钩信息</li>
+                                            <li><i class="fas fa-minus"></i>碳排放和经济的脱钩指数可以衡量经济增长与碳排放的关系，经济发展与碳排放之间的脱钩程度，反映了经济增长和环境保护之间的平衡情况。</li>
+                                            <li><i class="fas fa-minus"></i>由于脱钩指数与经济和碳排放两者息息相关，碳排放和经济的脱钩指数可以用来评估减排政策的效果，衡量减排政策对经济的影响，而且根据脱钩指数，可以指定更合适的政策。</li>
+                                            <li><i class="fas fa-minus"></i>如果脱钩指数低，说明在经济发展过程中，碳排放量与经济增长的关系紧密，此时需要采取更加有力的减排政策</li>
                                         </ul>
                                     </div>
                                     <div class="widget-bg faq-widget">
@@ -562,7 +561,7 @@
                                         <ul>
                                             <li><i class="fas fa-minus"></i>影响因素为对碳排放的变化趋势的影响</li>
                                             <li><i class="fas fa-minus"></i>以能源结构、能源消费强度、人口规模、经济发展水平四点主要因素进行了因素分解</li>
-                                            <li><i class="fas fa-minus"></i>影响因素之和为测试年与基年的碳排放变化量</li>
+                                            <li><i class="fas fa-minus"></i>碳排放的影响因素可以帮助我们识别那些因素导致了碳排放的增长，有助于指导采取哪些措施来减少碳排放</li>
                                             <li><i class="fas fa-minus"></i>系统采用LMDI算法</li>
                                         </ul>
                                     </div>
@@ -614,8 +613,6 @@
                                     <div class="widget-bg sidebar-list">
                                         <h4 class="bg-title">天津碳排放影响因素分析</h4>
                                         <ul>
-                                            <li><i class="fas fa-minus"></i>影响因素为对碳排放的变化趋势的影响</li>
-                                            <li><i class="fas fa-minus"></i>以能源结构、能源消费强度、人口规模、经济发展水平四点主要因素进行了因素分解</li>
                                             <li><i class="fas fa-minus"></i>能源结构是天津碳排放的主要的抑制因素</li>
                                             <li><i class="fas fa-minus"></i>经济发展是天津碳排放的主要的促进因素</li>
                                         </ul>
@@ -662,10 +659,10 @@
                                     <div class="widget-bg sidebar-list">
                                         <h4 class="bg-title">河北碳排放影响因素分析</h4>
                                         <ul>
-                                            <li><i class="fas fa-minus"></i>影响因素为对碳排放的变化趋势的影响</li>
-                                            <li><i class="fas fa-minus"></i>以能源结构、能源消费强度、人口规模、经济发展水平四点主要因素进行了因素分解</li>
+
                                             <li><i class="fas fa-minus"></i>近年来河北碳排放量一直处于增长状态</li>
-                                            <li><i class="fas fa-minus"></i>人口规模对河北碳排放影响较小，经济发展是河北碳排放的主要促进因素</li>
+                                            <li><i class="fas fa-minus"></i>能源结构是河北主要的碳排放抑制因素</li>
+                                            <li><i class="fas fa-minus"></i>人口规模是河北碳排放的促进因素但对河北碳排放影响较小，经济发展是河北碳排放的主要促进因素</li>
                                         </ul>
                                     </div>
                                 </div>

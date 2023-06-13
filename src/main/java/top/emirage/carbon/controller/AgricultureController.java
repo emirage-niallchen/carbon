@@ -20,13 +20,6 @@ import java.util.List;
  */
 @Controller
 public class AgricultureController {
-
-
-
-
-
-
-
     @Autowired
     private AgricultureServiceImpl agricultureService;
 

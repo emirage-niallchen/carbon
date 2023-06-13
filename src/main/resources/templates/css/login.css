@@ -1,0 +1,119 @@
+html,body{
+    margin:0px;
+    height:100%;
+}
+body{
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+	background:url(../images/login-bg.png) center center;
+	background-size:cover;
+	overflow:hidden;
+}
+.main-login{
+	width:100%;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+}
+.login-logo{
+	width:520px; 
+	height:90px;
+	background:url(../images/login-top.png) no-repeat center center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+}
+.login-content{
+	width:500px; 
+	height:250px;
+	background: #f5f8fb;
+	margin-left:auto;
+	margin-right:auto;
+	padding:40px 10px 40px 10px;
+	border: 2px solid #f0f7fb;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	filter:alpha(opacity=80);-moz-opacity:0.8; opacity:0.8;
+}
+.login-info{
+	width:400px; 
+	height:40px;
+	margin-left:auto;
+	margin-right:auto; 
+	background:#ffffff;
+	border: 2px solid #f0f7fb;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+	margin-top:20px;
+}
+.login-info span.user{
+	float:left;
+	width:40px; 
+	height:30px;
+	margin:5px auto 5px auto; 
+	background:url(../images/icon-user.gif) no-repeat center center; 
+	border-right:1px solid #a9a9a9
+}
+.login-info span.pwd{
+	float:left;
+	width:40px; 
+	height:30px;
+	margin:5px auto 5px auto; 
+	background:url(../images/icon-pwd.png) no-repeat center center; 
+	border-right:1px solid #a9a9a9
+}
+.login-input{
+	width:338px; 
+	height:40px;
+	line-height:40px;
+	background:#ffffff;
+	border:none;
+	margin:0;
+	padding:0;
+	padding-left:20px;
+}
+.login-oper{
+	width:400px; 
+	height:40px;
+	line-height:40px;
+	margin-left:auto;
+	margin-right:auto; 
+	margin-top:20px;
+}
+.login-btn{
+	width:170px;
+	height:30px;
+	border:none;
+	background:#056daa;
+	color:#ffffff;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-right:50px;
+}
+.login-reset{
+	width:170px;
+	height:30px;
+	border:none;
+	background:#7c7777;
+	color:#ffffff;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.bottom{
+	width:100%; 
+	height:40px;
+	line-height:40px;
+	text-align:right;
+	color:#ffffff;
+	font-weight:bold;
+	font-size:24px;
+	margin-top:80px;
+	padding-right:40px;
+}

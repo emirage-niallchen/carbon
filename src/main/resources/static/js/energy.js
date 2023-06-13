@@ -173,7 +173,7 @@ $(function () {
 
     /*加载添加用户信息模态框*/
     $("#btn_add").click(function () {
-        $("#addModalLabel").text("添加用户信息");
+        $("#addModalLabel").text("添加能源");
         $('#addModal').modal();
     });
 

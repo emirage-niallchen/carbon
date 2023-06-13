@@ -3,7 +3,7 @@
 # this is run by netlify. there is no need to run this manually.
 
 # log
-# Generate index.html and /temp assets for GH Pages branch
+# Generate login.html and /temp assets for GH Pages branch
 npm i
 grunt build
 grunt build-gh-pages

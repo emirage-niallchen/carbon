@@ -26,7 +26,7 @@ git checkout master
 grunt bump-only:"$versionBumpType"
 # Generate new dist
 grunt prod
-# Generate new index.html page
+# Generate new login.html page
 grunt template
 # Force add dist contents
 git add dist/* --force
