@@ -101,9 +101,9 @@ src
 
 #### 项目结构整体
 
-![img](file:///readme的图片\wps2.jpg)
+![img](readme的图片/wps2.jpg)
 
-![img](file:\\\readme的图片\wps3.jpg)
+![img](readme的图片/wps3.jpg)
 
 项目分为两个模块，一块是对数据的增删改查，一块是数据的可视化
 
