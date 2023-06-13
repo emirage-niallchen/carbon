@@ -58,6 +58,7 @@ http://carbon.bishe.emirage.top/index
 - Maven 3.6
 - IntelliJ IDEA 2021.3（可选）
 - templates
+- MyBatis plus
 
 ### 项目结构
 
@@ -71,27 +72,39 @@ src
    - java
      - annotation
      - config
+       - MyMvcConfig   配置拦截器与拦截路径
+       - RedisConfig   redis配置类
      - controller
+       - ExcelExportController     Excel导入导出控制
+       - GloablExceptionHandler    全局错误处理
+       - LoginController    实现登陆登出
      - dao
      - entity
      - Filter
+       - JwtAuthenticationTokenFilter    jwt 过滤器
      - interceptor
-     - Listener
+       - LoginInterceptor    登陆拦截器
+     - Listener 
      - service
      - utils
+       - Anticipate      碳排放预测计算模块
+       - getData         统一获取数据类
+       - Lmdi           LMDI计算模块
+       - Tapio          脱钩指数计算模块
+       - TokenUtils      jwt工具类 
      - CarbonApplication
    - resources
      - static
      - templates
-       - crud
+       - crud     后台界面
        - error
-       - show
+       - show     前台数据展示界面
        - index.html
        - login.html
-     - banner.txt
+     - banner.txt     美美哒控制台打印数据
      - application.properties
  - sql
-   - carbon.sql
+   - carbon.sql       
 
 文档
 
