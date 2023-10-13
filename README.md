@@ -41,6 +41,7 @@
 也可以访问项目网址
 
 http://carbon.bishe.emirage.top/index
+**已迁移至 http://carbon.emirage.com.cn/index**
 
 
 
